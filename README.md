@@ -32,6 +32,7 @@ $ export AUTH_PASS=MinhaSenha (Troque MinhaSenha pela senha que você desejar)
 ```
 
 Em seguida você pode executar o Multas Sociais, com o comando:
+
 ```console
 $ rails server
 ```
@@ -45,6 +46,7 @@ O código-fonte do Multas Sociais está disponível sob uma licença GNU Affero 
 (The AGPL's terms are almost identical to the GPL's; the sole substantive difference is that it has an extra condition designed to ensure that people who use the software over a network will be able to get the source code for it.)
 
 Multas Sociais - Cidadania no trânsito
+
     Copyright (C) 2012 - Multas Sociais
 
     This program is free software: you can redistribute it and/or modify
