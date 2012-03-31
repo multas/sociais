@@ -67403,3 +67403,277 @@ Served asset /orangegradtx.png - 304 Not Modified (0ms)
 
 Started GET "/assets/whitegrad.png" for 127.0.0.1 at 2012-03-10 04:58:26 -0300
 Served asset /whitegrad.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-31 18:56:23 -0300
+
+PGError (FATAL:  role "msociais" does not exist
+):
+  
+
+Rendered /Users/brunotorquato/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Users/brunotorquato/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.8ms)
+Rendered /Users/brunotorquato/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (36.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-31 19:00:39 -0300
+  [1m[36m (0.3ms)[0m  [1mSHOW search_path[0m
+  Processing by MultasController#index as HTML
+PGError: ERROR:  relation "multas" does not exist
+LINE 4:              WHERE a.attrelid = '"multas"'::regclass
+                                        ^
+:             SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+              FROM pg_attribute a LEFT JOIN pg_attrdef d
+                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+             WHERE a.attrelid = '"multas"'::regclass
+               AND a.attnum > 0 AND NOT a.attisdropped
+             ORDER BY a.attnum
+Completed 500 Internal Server Error in 2ms
+
+ActiveRecord::StatementInvalid (PGError: ERROR:  relation "multas" does not exist
+LINE 4:              WHERE a.attrelid = '"multas"'::regclass
+                                        ^
+:             SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+              FROM pg_attribute a LEFT JOIN pg_attrdef d
+                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+             WHERE a.attrelid = '"multas"'::regclass
+               AND a.attnum > 0 AND NOT a.attisdropped
+             ORDER BY a.attnum
+):
+  app/controllers/application_controller.rb:10:in `new'
+  app/controllers/application_controller.rb:10:in `prepare_multa'
+
+Rendered /Users/brunotorquato/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Users/brunotorquato/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /Users/brunotorquato/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.9ms)
+  [1m[36m (0.1ms)[0m  [1mSHOW search_path[0m
+  [1m[35m (78.5ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (3.3ms)[0m  [1m SELECT distinct i.relname, d.indisunique, d.indkey, t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'schema_migrations'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+[0m
+  [1m[35m (2.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateMultas (20111217175426)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (6.8ms)[0m  [1mCREATE TABLE "multas" ("id" serial primary key, "descricao" text, "placa" character varying(255), "video" character varying(255), "foto" character varying(255), "data_ocorrencia" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111217175426')
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+Migrating to AddAttachmentFotoToMulta (20111218024957)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "multas" ADD COLUMN "foto_file_name" character varying(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "multas" ADD COLUMN "foto_content_type" character varying(255)
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "multas" ADD COLUMN "foto_file_size" integer[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "multas" ADD COLUMN "foto_updated_at" timestamp
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111218024957')[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+Migrating to CreateFlags (20111218195345)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.9ms)[0m  CREATE TABLE "flags" ("id" serial primary key, "multa_id" integer, "motivo" integer, "descricao" text, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.2ms)[0m  [1m SELECT distinct i.relname, d.indisunique, d.indkey, t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'flags'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+[0m
+  [1m[35m (1.6ms)[0m  CREATE INDEX "index_flags_on_multa_id" ON "flags" ("multa_id")
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111218195345')[0m
+  [1m[35m (1.6ms)[0m  COMMIT
+Migrating to AddHiddenToMulta (20111218200950)
+  [1m[36m (1.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (7.0ms)[0m  ALTER TABLE "multas" ADD COLUMN "hidden" boolean DEFAULT 'false' NOT NULL
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111218200950')[0m
+  [1m[35m (1.6ms)[0m  COMMIT
+Migrating to AddLikeToMulta (20111219001430)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (5.3ms)[0m  ALTER TABLE "multas" ADD COLUMN "like" integer DEFAULT 0 NOT NULL
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111219001430')[0m
+  [1m[35m (1.1ms)[0m  COMMIT
+Migrating to RenameLikeToLikes (20111219010158)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "multas" RENAME COLUMN "like" TO "likes"
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111219010158')[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+Migrating to CreateBlacklists (20111223020345)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "blacklists" ("id" serial primary key, "ip" character varying(255), "enabled" boolean, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111223020345')[0m
+  [1m[35m (1.2ms)[0m  COMMIT
+Migrating to AddCreatorIpToMulta (20111226020304)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "multas" ADD COLUMN "creator_ip" character varying(255)
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111226020304')[0m
+  [1m[35m (2.1ms)[0m  COMMIT
+Migrating to RemoveFotoFromMulta (20111227002816)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "multas" DROP "foto"
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111227002816')[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mSHOW search_path[0m
+  [1m[35m (0.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (2.0ms)[0m  [1m SELECT distinct i.relname, d.indisunique, d.indkey, t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'blacklists'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+[0m
+  [1m[35m (0.8ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'flags'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+  [1m[36mColumns for index index_flags_on_multa_id on flags (0.3ms)[0m  [1m SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 25108
+ AND a.attnum IN (2)
+[0m
+  [1m[35m (0.9ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'multas'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-31 19:01:03 -0300
+  [1m[36m (0.3ms)[0m  [1mSHOW search_path[0m
+  Processing by MultasController#index as HTML
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "blacklists" WHERE "blacklists"."ip" = '127.0.0.1' AND "blacklists"."enabled" = 't'
+  [1m[36mMulta Load (1.4ms)[0m  [1mSELECT "multas".* FROM "multas" WHERE "multas"."hidden" = 'f' AND (video <> '' or foto_file_name is not null) ORDER BY created_at DESC LIMIT 10 OFFSET 0[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "multas" WHERE "multas"."hidden" = 'f' AND (video <> '' or foto_file_name is not null)
+Rendered multas/index.html.erb within layouts/application (49.6ms)
+Rendered shared/_form.html.erb (65.3ms)
+Rendered layouts/_twitter_widget.html.erb (0.5ms)
+Completed 200 OK in 238ms (Views: 209.7ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/assets/960.css?body=1" for 127.0.0.1 at 2012-03-31 19:01:04 -0300
+Served asset /960.css - 200 OK (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2012-03-31 19:01:04 -0300
+Served asset /style.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-03-31 19:01:04 -0300
+Served asset /jquery_ujs.js - 200 OK (14ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min.js?body=1" for 127.0.0.1 at 2012-03-31 19:01:04 -0300
+Served asset /jquery-ui-1.8.16.custom.min.js - 200 OK (5ms)
+
+
+Started GET "/assets/multas.js?body=1" for 127.0.0.1 at 2012-03-31 19:01:04 -0300
+Served asset /multas.js - 200 OK (3ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom?body=1" for 127.0.0.1 at 2012-03-31 19:01:04 -0300
+Served asset /jquery-ui-1.8.16.custom - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-03-31 19:01:04 -0300
+Served asset /jquery.js - 200 OK (3ms)
+
+
+Started GET "/assets/script.js?body=1" for 127.0.0.1 at 2012-03-31 19:01:04 -0300
+Served asset /script.js - 200 OK (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-03-31 19:01:04 -0300
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/fundo.png" for 127.0.0.1 at 2012-03-31 19:01:05 -0300
+Served asset /fundo.png - 200 OK (2ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-03-31 19:01:05 -0300
+Served asset /logo.png - 200 OK (11ms)
+
+
+Started GET "/assets/blackgrad.jpg" for 127.0.0.1 at 2012-03-31 19:01:05 -0300
+Served asset /blackgrad.jpg - 200 OK (2ms)
+
+
+Started GET "/assets/orangegradtx.png" for 127.0.0.1 at 2012-03-31 19:01:05 -0300
+Served asset /orangegradtx.png - 200 OK (3ms)
+
+
+Started GET "/assets/transp.png" for 127.0.0.1 at 2012-03-31 19:01:05 -0300
+Served asset /transp.png - 200 OK (27ms)
+
+
+Started GET "/assets/whitegrad.png" for 127.0.0.1 at 2012-03-31 19:01:05 -0300
+Served asset /whitegrad.png - 200 OK (3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-31 19:01:55 -0300
+  Processing by MultasController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "blacklists" WHERE "blacklists"."ip" = '127.0.0.1' AND "blacklists"."enabled" = 't'[0m
+  [1m[35mMulta Load (0.5ms)[0m  SELECT "multas".* FROM "multas" WHERE "multas"."hidden" = 'f' AND (video <> '' or foto_file_name is not null) ORDER BY created_at DESC LIMIT 10 OFFSET 0
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "multas" WHERE "multas"."hidden" = 'f' AND (video <> '' or foto_file_name is not null)[0m
+Rendered multas/index.html.erb within layouts/application (1.1ms)
+Rendered shared/_form.html.erb (25.5ms)
+Rendered layouts/_twitter_widget.html.erb (0.0ms)
+Completed 200 OK in 62ms (Views: 51.1ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/960.css?body=1" for 127.0.0.1 at 2012-03-31 19:01:55 -0300
+Served asset /960.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2012-03-31 19:01:55 -0300
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom?body=1" for 127.0.0.1 at 2012-03-31 19:01:55 -0300
+Served asset /jquery-ui-1.8.16.custom - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fundo.png" for 127.0.0.1 at 2012-03-31 19:01:55 -0300
+Served asset /fundo.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-03-31 19:01:55 -0300
+Served asset /logo.png - 304 Not Modified (2ms)
+
+
+Started GET "/assets/blackgrad.jpg" for 127.0.0.1 at 2012-03-31 19:01:55 -0300
+Served asset /blackgrad.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/orangegradtx.png" for 127.0.0.1 at 2012-03-31 19:01:55 -0300
+Served asset /orangegradtx.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/transp.png" for 127.0.0.1 at 2012-03-31 19:01:55 -0300
+Served asset /transp.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/whitegrad.png" for 127.0.0.1 at 2012-03-31 19:01:55 -0300
+Served asset /whitegrad.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/orangegradtx2.png" for 127.0.0.1 at 2012-03-31 19:01:56 -0300
+Served asset /orangegradtx2.png - 200 OK (1ms)
