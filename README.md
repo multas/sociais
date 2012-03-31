@@ -15,21 +15,26 @@ O sistema pode ser visto em http://www.MultasSociais.net/
 
 As seguintes variáveis de sessão precisam estar definidas antes de executar o Multas Sociais:
 
-S3_KEY, com a chave de segurança do Amazon Simple Storage Service (Amazon S3) onde serão armazenadas as fotos.
-S3_SECRET, com a chave secreta do Amazon S3.
-AUTH_USER, com o login do usuário administrador do Multas Sociais.
-AUTH_PASS, com a senha do usuário administrador do Multas Sociais.
+* S3_KEY, com a chave de segurança do Amazon Simple Storage Service (Amazon S3) onde serão armazenadas as fotos.
+* S3_SECRET, com a chave secreta do Amazon S3.
+* AUTH_USER, com o login do usuário administrador do Multas Sociais.
+* AUTH_PASS, com a senha do usuário administrador do Multas Sociais.
 
 Se você está executando pela primeira vez o Multas Sociais em sua máquina, você precisa se inscrever para uma conta gratuita do Amazon S3, no endereço http://aws.amazon.com/s3/
+
 Quando tiver o login e a senha do Amazon S3, escolha um login e senha de administrador do Multas Sociais. Em seguida você pode executar os seguintes comando para executar o Multas Sociais, em ambiente unix (ou Mac):
 
+```console
 $ export S3_KEY=OF78Y4H8HYFS9489Y (Troque OF78Y4H8HYFS9489Y por sua chave do Amazon S3)
 $ export S3_SECRET=lcz8ihi8h3ihi3hiliu (Troque lcz8ihi8h3ihi3hiliu por sua chave secreta do Amazon S3)
 $ export AUTH_USER=MeuLogin (Troque MeuLogin pelo login que você desejar)
 $ export AUTH_PASS=MinhaSenha (Troque MinhaSenha pela senha que você desejar)
+```
 
 Em seguida você pode executar o Multas Sociais, com o comando:
+```console
 $ rails server
+```
 
 Para evitar ter que configurar as variáveis de ambiente todas as vezes, você pode salvar essas informações em seu arquivo de inicialização (~/.profile ou ~/.bash_profile, etc).
 
