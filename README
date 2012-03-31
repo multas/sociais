@@ -1,4 +1,4 @@
-== Multas Sociais
+## Multas Sociais
 
 O Multas Sociais é um site com fins estritamente educacionais e de conscientização da população. As multas sociais criadas aqui são fictícias.
 
@@ -11,7 +11,7 @@ Caso se sinta lesado ou ofendido por qualquer informação, imagem ou vídeo dis
 
 O sistema pode ser visto em http://www.MultasSociais.net/
 
-== Informações Adicionais
+## Informações Adicionais
 
 As seguintes variáveis de sessão precisam estar definidas antes de executar o Multas Sociais:
 
@@ -33,3 +33,26 @@ $ rails server
 
 Para evitar ter que configurar as variáveis de ambiente todas as vezes, você pode salvar essas informações em seu arquivo de inicialização (~/.profile ou ~/.bash_profile, etc).
 
+## Licença
+
+O código-fonte do Multas Sociais está disponível sob uma licença GNU Affero General Public License (GNU AGPL) - http://www.gnu.org/licenses/agpl.html (Versão 3)
+
+(The AGPL's terms are almost identical to the GPL's; the sole substantive difference is that it has an extra condition designed to ensure that people who use the software over a network will be able to get the source code for it.)
+
+Multas Sociais - Cidadania no trânsito
+    Copyright (C) 2012 - Multas Sociais
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    contato@multassociais.net
