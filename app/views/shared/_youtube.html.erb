@@ -1,0 +1,7 @@
+<% if isYoutube(multa.video) %>
+	<object width="371" height="306"><param name="movie" 
+	value="http://www.youtube.com/v/<%= multa.video.split("watch?v=")[1] %>" /><embed 
+	src="http://www.youtube.com/v/<%= multa.video.split("watch?v=")[1] %>" 
+	type="application/x-shockwave-flash" width="371" 
+	height="306"></embed></object>
+<% end %>

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<div class="box-sobre clearfix">
+  <div id="form-report" class="grid_13 push_1">
+    <p>
+      <b>Porquê você gostaria que esta Multa Social fosse removida?</b>
+    </p>
+    <%= form_tag multa_create_flag_path(@multa_show) do %>
+      <div class="grid_10"><%= select_tag('flag[motivo]', options_for_select([["Não é relacionada a trânsito.", 0], ["Este conteúdo me ofende.", 1], ["Me sinto lesado com a divulgação destas informações.", 2], ["Eu não cometi esta infração.", 3], ["Isto é um SPAM.", 4]]), { :include_blank => true }) %></div>
+      <div class="clear"></div>
+      <br/><br/>
+      <div class="grid_3"><%= submit_tag "Reportar" %></div>
+    <% end %>
+  </div>
+  <div class="img-multa">
+    <a href="#">
+      <%= image_tag( @multa_show.foto , :width => "150", :alt => "") if @multa_show.tem_foto? %>
+    </a>
+  </div>
+  <div class="grid_16">
+    <br/><br/>
+    <%= link_to 'Voltar', :back %>
+  </div>
+</div>
+<br />
+
+

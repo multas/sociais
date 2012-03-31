@@ -1,0 +1,29 @@
+<div class="box-sobre clearfix">
+  <h1>Listagem de multas e IPs</h1>
+
+  <table>
+    <tr>
+      <td>ID</td>
+      <td>IP</td>
+      <td>Descrição</td>
+      <td>Placa</td>
+      <td>URL do Vídeo</td>
+      <td>Visível?</td>
+      <td>Quantos multam?</td>
+    </tr>
+    <% @multas.each do |multa| %>
+      <tr>
+        <td><%= link_to multa.id, "show_multa/#{multa.id}" %></td>
+        <td><%= multa.creator_ip %></td>
+        <td><%= preview multa.descricao %></td>
+        <td><%= preview multa.placa %></td>
+        <td><%= preview multa.video %></td>
+        <td><%= multa.hidden_as_string %></td>
+        <td><%= multa.likes %></td>
+        <td><%= link_to "Bloquear", "bloquear_ip/#{multa.id}", :confirm => "Tem certeza que deseja bloquear o IP #{multa.creator_ip} e tornar todas as suas multas invisíveis?", :method => :delete unless multa.creator_ip.blank? %></td>
+      </tr>
+    <% end %>
+  </table>
+  
+  <br/><br/><br/><br/>
+</div>

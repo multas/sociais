@@ -1,0 +1,20 @@
+<div class="box-sobre clearfix">
+  <div class="img-multa">
+    <a href="#">
+    <%= image_tag('officer.jpg' , :width => "300", :alt => "") %>
+    </a>
+  </div>
+  <span class="tit-sobre">Sobre o Multas Sociais</span>
+  <p class="ds-sobre">
+    O Multas Sociais é um site com fins estritamente educacionais e de conscientização da população. As multas sociais criadas aqui são fictícias.<br/><br/>
+    Este site não possui nenhum vínculo com os órgãos oficiais de controle de infrações de trânsito ou nenhum departamento governamental.<br/><br/>
+    Caso queira efetuar uma denúncia oficial, o usuário deve buscar os órgãos responsáveis em seu município ou estado.<br/><br/>
+    O Multas Sociais não se responsabiliza pelo conteúdo das informações, imagens e vídeos carregados pelos usuários da ferramenta. Caso se sinta lesado ou ofendido por qualquer informação, imagem ou vídeo disponibilizado por algum usuário do Multas Sociais, envie um e-mail para privacidade@multassociais.net para providenciarmos a remoção do conteúdo solicitado.
+    <br/><br/><br/><br/>
+  </p>
+</div>
+<!-- Begin - Twitter e Facebook -->
+<%= render :partial => "shared/twitter_share_follow" %>
+<br/><br/>
+<%= render :partial => "shared/facebook_comments", :locals => { :fb_url => sobre_url } %>
+<!-- End - Twitter e Facebook -->

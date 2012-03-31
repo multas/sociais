@@ -1,0 +1,20 @@
+<div class="box-sobre clearfix">
+  <h1>IPs na Blacklist (sem acesso ao site)</h1>
+  <table>
+    <tr>
+      <td>ID</td>
+      <td>IP</td>
+      <td>Desde quando?</td>
+    </tr>
+    <% @blacklist.each do |blacklist| %>
+      <tr>
+        <td><%= blacklist.id %></td>
+        <td><%= blacklist.ip %></td>
+        <td><%= format_timestamp blacklist.created_at %></td>
+        <td><%= link_to "Remover da Blacklist", "remover_blacklist/#{blacklist.id}", :confirm => "Tem certeza que deseja remover o IP #{blacklist.ip} da blacklist? As multas criadas por este IP continuarão invisíveis.", :method => :put %></td>
+      </tr>
+    <% end %>
+  </table>
+  
+  <br/><br/><br/><br/>
+</div>

@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<div id="pagination">
+  <ul>
+    <li class="first-page">
+      <%= link_to "Anterior", @previous %>
+    </li>
+    <li class="next-page">
+      <%= link_to "Próxima", @next %>
+    </li>
+  </ul>
+</div>
+
+<div class="box-sobre clearfix">
+  <div class="img-multa">
+    <a href="#">
+      <%= image_tag( @multa_show.foto , :width => "685", :alt => "") unless @multa_show.foto.size.nil? %>
+    </a>
+  </div>
+  <div class="grid_16">
+    <p>
+      <b>Descricao:</b>
+      <%= @multa_show.descricao %>
+    </p>
+    
+    <p>
+      <b>Placa:</b>
+      <%= @multa_show.placa %>
+    </p>
+    
+    <p>
+      <%= render :partial => "shared/youtube", :locals => { :multa => @multa_show } %>
+    </p>
+    
+    <p>
+      <b>Data da Ocorrência:</b>
+      <%= @multa_show.data_ocorrencia.strftime("%d/%m/%Y - %H:%M:%S") %>
+    </p>
+  </div>
+  <div class="" style="width:210px">
+    <%= link_to "Eu Multo!", multa_like_path(@multa_show), :remote => true, :class => "bt-like", :onclick => "return false;" %>
+    <p class="votacao-multa">
+      <span class="num-votacao"><%= @multa_show.likes %></span> pessoas também multaram.
+    </p>
+    <div class="grid_5">
+      <ul class="grid_2 ui-widget ui-helper-clearfix" id="icons">
+        <li class="ui-state-default ui-corner-all" title="Marcar para remoção">
+          <%= link_to "<span class=\"ui-icon ui-icon-flag\"></span>".html_safe, multa_flag_path(@multa_show) %>
+        </li>
+      </ul>
+      <div class="grid_2 fb-like" data-href="<%= multa_url(@multa_show) %>" data-send="false" data-layout="button_count" data-width="0" data-show-faces="false"></div>
+    </div>
+  </div>
+</div>
+<div id="pagination">
+  <ul>
+    <li class="first-page">
+      <%= link_to "Anterior", @previous %>
+    </li>
+    <li class="next-page">
+      <%= link_to "Próxima", @next %>
+    </li>
+  </ul>
+</div>
+<!-- Facebook Comments -->
+<%= render :partial => "shared/facebook_comments", :locals => { :fb_url => multa_url(@multa_show) } %>

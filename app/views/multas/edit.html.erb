@@ -1,0 +1,9 @@
+<h1>Editing multa</h1>
+
+<%= link_to "Remover esta multa", @multa, :confirm => "Tem certeza que deseja tornar esta multa invisível?", :method => :delete %>
+
+<%= render 'shared/form' %>
+
+
+<%= link_to 'Show', @multa %> |
+<%= link_to 'Back', multas_path %>

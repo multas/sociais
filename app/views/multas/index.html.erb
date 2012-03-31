@@ -1,0 +1,70 @@
+<% content_for :widgets do %>
+  <!-- Begin Facebook Widget Code -->
+  <div class="fb-comments" data-href="http://www.multassociais.net" data-num-posts="5" data-width="250"></div>
+  <!-- End Facebook Widget Code -->
+<% end %>
+
+<div id="pagination">
+  <ul>
+    <li>
+      <%= link_to "Mais Novos", multas_url, :class => @mais_novos_css_class %>
+    </li>
+    <li>
+      <%= link_to "Mais Multados", mais_multados_url, :class => @mais_multados_css_class %>
+    </li>
+    <!--
+    <li><a href="#">Mais Comentados</a></li>
+    -->
+  </ul>
+</div>
+
+<p id="notice">
+  <%= notice %>
+</p>
+
+<% @multas.each do |multa| %>
+<div id="multas">
+  <!-- Inicio Post Multa -->
+  <div class="post-multa clearfix">
+    <div class="grid_12 media-multa">
+      <% if multa.tem_foto? %>
+      <div class="img-multa">
+        <%= (link_to image_tag(multa.foto, :width => "460", :alt => ""), multa) %>
+      </div>
+      <% else %>
+      <div class="video-multa">
+        <%= render :partial => "shared/youtube", :locals => { :multa => multa } %>
+      </div>
+      <% end %>
+    </div>
+    <span class="dt-multa"><%= multa.created_at.strftime("%d/%m/%Y - %H:%M:%S") %></span>
+    <p class="ds-multa">
+      <%= preview multa.descricao %><%= link_to "Ver mais", multa %>
+    </p>
+    <%= link_to "Eu Multo!", multa_like_path(multa), :remote => true, :class => "bt-like", :onclick => "return false;" %>
+    <p class="votacao-multa">
+      <span class="num-votacao"><%= multa.likes %></span> pessoas também multaram.
+    </p>
+    <div class="grid_5">
+      <ul class="grid_2 ui-widget ui-helper-clearfix" id="icons">
+        <li class="ui-state-default ui-corner-all" title="Marcar para remoção">
+          <%= link_to "<span class=\"ui-icon ui-icon-flag\"></span>".html_safe, multa_flag_path(multa) %>
+        </li>
+      </ul>
+      <div class="grid_2 fb-like" data-href="<%= multa_url(multa) %>" data-send="false" data-layout="button_count" data-width="0" data-show-faces="false"></div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<% if @offset %>
+<div id="pagination">
+  <ul>
+    <li>
+      <%= link_to "Mais...", multas_url(:p => @offset) %>
+    </li>
+  </ul>
+</div>
+<% end %>
+
+<br/>

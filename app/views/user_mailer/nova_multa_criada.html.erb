@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Uma nova multa foi criada!</h1>
+    <p>
+      URL direta para a multa: <%= "#{@root_url}#{url_for @multa}" %><br/><br/>
+      
+      REMOVER esta multa: <%= "#{@root_url}#{edit_multa_path @multa}" %> (Clique no link e, em seguida, em "Remover esta Multa")<br/><br/>
+      
+      BLOQUEAR IP: http://www.multassociais.net/admin/lista (Clique no link e, em seguida, em "Bloquear" no ip desejado)<br/><br/>
+      
+      -------------------------------------------------------<br/><br/>
+      
+      ID: <%= @multa.id %><br/><br/>
+      
+      Descrição: <%= @multa.descricao %><br/><br/>
+      
+      Placa: <%= @multa.placa %><br/><br/>
+      
+      URL do vídeo: <%= @multa.video %><br/><br/>
+      
+      Data da ocorrência: <%= format_timestamp @multa.data_ocorrencia %><br/>
+      Data da criação:  <%= format_timestamp @multa.created_at %><br/><br/>
+      
+      Informações da foto: <%= @multa.foto_file_name %>      (<%= @multa.foto_content_type %>)      <%= "#{@multa.foto_file_size/1000}KB" unless @multa.foto_file_size.blank? %><br/><br/>
+      
+      IP: <%= @multa.creator_ip %><br/><br/>
+      
+      Foto:<br/>
+      <%= image_tag( @multa.foto , :width => "250") unless @multa.foto.size.nil? %>
+    </p>
+  </body>
+</html>
+

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  multa: 
+  motivo: 1
+  descricao: MyText
+
+two:
+  multa: 
+  motivo: 1
+  descricao: MyText

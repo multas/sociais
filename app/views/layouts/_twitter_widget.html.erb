@@ -1,0 +1,60 @@
+<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+<% if TWITTER_TIMELINE %>
+  <script>
+  new TWTR.Widget({
+    version: 2,
+    type: 'profile',
+    rpp: 4,
+    interval: 30000,
+    width: 250,
+    height: 300,
+    theme: {
+      shell: {
+        background: '#383838',
+        color: '#ffffff'
+      },
+      tweets: {
+        background: '#383838',
+        color: '#ffffff',
+        links: '#f59f3d'
+      }
+    },
+    features: {
+      scrollbar: false,
+      loop: false,
+      live: true,
+      behavior: 'all'
+    }
+  }).render().setUser('multassociais').start();
+  </script>
+<% else %>
+  <script>
+  new TWTR.Widget({
+    version: 2,
+    type: 'search',
+    search: 'Multas Sociais OR MultasSociais',
+    interval: 5000,
+    title: '',
+    subject: '#MultasSociais',
+    width: 250,
+    height: 300,
+    theme: {
+      shell: {
+        background: '#383838',
+        color: '#ffffff'
+      },
+      tweets: {
+        background: '#383838',
+        color: '#ffffff',
+        links: '#f59f3d'
+      }
+    },
+    features: {
+      scrollbar: false,
+      loop: true,
+      live: true,
+      behavior: 'default'
+    }
+  }).render().start();
+  </script>
+<% end %>
