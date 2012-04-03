@@ -19,19 +19,8 @@ gem 'jquery-rails'
 gem 'paperclip'
 gem 'aws-s3'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
-  # Pretty printed test output
+	gem "rspec-rails"
   gem 'turn', '0.8.2', :require => false
 end
