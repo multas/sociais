@@ -23,4 +23,5 @@ gem 'aws-s3'
 group :test do
 	gem "rspec-rails"
   gem 'turn', '0.8.2', :require => false
+  gem 'simplecov', :require => false, :platforms => :ruby_19
 end
