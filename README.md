@@ -13,6 +13,12 @@ O sistema pode ser visto em http://www.MultasSociais.net/
 
 ## Informações Adicionais
 
+Primeiramente você deve configurar seu arquivo de banco de dados:
+
+```console
+$ cp config/database.yml.example config/database.yml
+```
+
 As seguintes variáveis de sessão precisam estar definidas antes de executar o Multas Sociais:
 
 * S3_KEY, com a chave de segurança do Amazon Simple Storage Service (Amazon S3) onde serão armazenadas as fotos.
