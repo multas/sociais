@@ -45,6 +45,31 @@ $ rails server
 
 Para evitar ter que configurar as variáveis de ambiente todas as vezes, você pode salvar essas informações em seu arquivo de inicialização (~/.profile ou ~/.bash_profile, etc).
 
+
+## Contribuindo
+
+Quer ajudar? simples, fork o projeto, crie um branch tema a partir do master, por exemplo, vai corrigir algo:
+
+```console
+$ git checkout -b corrigindo_algo master
+```
+
+Faça suas alterações, por favor commits pequenos, rode os testes:
+
+```console
+$ bundle exec rspec spec
+```
+
+Se tudo estiver passando, commit:
+
+```console
+$ git push origin corrigindo_algo
+```
+
+Só iniciar o processo de pull request através do branch corrigindo_algo
+
+
+
 ## Licença
 
 O código-fonte do Multas Sociais está disponível sob uma licença GNU Affero General Public License (GNU AGPL) - http://www.gnu.org/licenses/agpl.html (Versão 3)
