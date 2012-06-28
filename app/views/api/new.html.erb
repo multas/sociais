@@ -1,0 +1,46 @@
+<%= form_for @api, :url => api_path, :authenticity_token => false, :html => {:multipart => true } do |f| %>
+  <% if @api.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@api.errors.count, "error") %> prohibited this api from being saved:</h2>
+
+      <ul>
+      <% @api.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= label_tag :api_id %><br />
+    <%= text_field_tag :api_id %>
+  </div>
+  <div class="field">
+    <%= label_tag :api_secret %><br />
+    <%= text_field_tag :api_secret %>
+  </div>
+  <div class="item-form">
+    <%= f.label 'Data e hora (aproximada) da Ocorrência' %><br />
+    <%= f.datetime_select :data_ocorrencia %>
+  </div>
+  <div class="item-form">
+    <%= f.label :placa %><br />
+    <%= f.text_field :placa %>
+  </div>
+  <div class="item-form">
+    <%= f.label :foto %><br />
+    <%= f.file_field :foto %>
+  </div>
+  <div class="item-form">
+    <%= f.label "Vídeo (URL do Youtube)" %><br />
+    <%= f.text_field :video %>
+  </div>
+  <div class="item-form">
+    <%= f.label 'Descrição da Ocorrência' %><br />
+    <%= f.text_area :descricao %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "Aplicar multa" %>
+  </div>
+<% end %>

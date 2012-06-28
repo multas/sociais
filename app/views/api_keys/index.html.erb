@@ -1,0 +1,37 @@
+<h1>Listing api_keys</h1>
+
+<table>
+  <tr>
+    <th>Api</th>
+    <th>Api secret</th>
+    <th>App name</th>
+    <th>App site</th>
+    <th>Owner name</th>
+    <th>Owner email</th>
+    <th>Enabled</th>
+    <th>Excluded</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @api_keys.each do |api_key| %>
+  <tr>
+    <td><%= api_key.api_id %></td>
+    <td><%= api_key.api_secret %></td>
+    <td><%= api_key.app_name %></td>
+    <td><%= api_key.app_site %></td>
+    <td><%= api_key.owner_name %></td>
+    <td><%= api_key.owner_email %></td>
+    <td><%= api_key.enabled %></td>
+    <td><%= api_key.excluded %></td>
+    <td><%= link_to 'Show', api_key %></td>
+    <td><%= link_to 'Edit', edit_api_key_path(api_key) %></td>
+    <td><%= link_to 'Destroy', api_key, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Api key', new_api_key_path %>

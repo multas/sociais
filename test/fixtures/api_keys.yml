@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  api_id: MyString
+  api_secret: MyString
+  app_name: MyString
+  app_site: MyString
+  owner_name: MyString
+  owner_email: MyString
+  enabled: false
+  excluded: false
+
+two:
+  api_id: MyString
+  api_secret: MyString
+  app_name: MyString
+  app_site: MyString
+  owner_name: MyString
+  owner_email: MyString
+  enabled: false
+  excluded: false

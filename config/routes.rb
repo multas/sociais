@@ -25,4 +25,10 @@ Msociais::Application.routes.draw do
   # Root
   root :to => 'multas#index'
 
+  # API
+  resources :api_keys
+  get 'api/new'
+  post 'api' => 'api#create'
+  
+  
 end

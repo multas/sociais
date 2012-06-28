@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111227002816) do
+ActiveRecord::Schema.define(:version => 20120628043210) do
+
+  create_table "api_keys", :force => true do |t|
+    t.string   "api_id"
+    t.string   "api_secret"
+    t.string   "app_name"
+    t.string   "app_site"
+    t.string   "owner_name"
+    t.string   "owner_email"
+    t.boolean  "enabled"
+    t.boolean  "excluded"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "blacklists", :force => true do |t|
     t.string   "ip"

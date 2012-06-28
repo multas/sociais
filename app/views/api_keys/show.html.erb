@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Api:</b>
+  <%= @api_key.api_id %>
+</p>
+
+<p>
+  <b>Api secret:</b>
+  <%= @api_key.api_secret %>
+</p>
+
+<p>
+  <b>App name:</b>
+  <%= @api_key.app_name %>
+</p>
+
+<p>
+  <b>App site:</b>
+  <%= @api_key.app_site %>
+</p>
+
+<p>
+  <b>Owner name:</b>
+  <%= @api_key.owner_name %>
+</p>
+
+<p>
+  <b>Owner email:</b>
+  <%= @api_key.owner_email %>
+</p>
+
+<p>
+  <b>Enabled:</b>
+  <%= @api_key.enabled %>
+</p>
+
+<p>
+  <b>Excluded:</b>
+  <%= @api_key.excluded %>
+</p>
+
+
+<%= link_to 'Edit', edit_api_key_path(@api_key) %> |
+<%= link_to 'Back', api_keys_path %>
