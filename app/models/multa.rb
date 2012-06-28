@@ -2,6 +2,7 @@
 class Multa < ActiveRecord::Base
   
   has_many :flags
+  belongs_to :api_key
   
   scope :visible, where(:hidden => false)
   scope :invisible, where(:hidden => true)

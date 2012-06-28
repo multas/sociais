@@ -16,6 +16,7 @@ class ApiController < ApplicationController
   def create
     @multa = Multa.new(params[:multa])
     @multa.creator_ip = request.remote_ip 
+    @multa.api_key_id = ApiKey.find_by_api_id(params[:api_id]).id
     
     if @multa.save
       # Tell the UserMailer to send an e-mail after save

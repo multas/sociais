@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120628043210) do
+ActiveRecord::Schema.define(:version => 20120628052411) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "api_id"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20120628043210) do
     t.boolean  "hidden",            :default => false, :null => false
     t.integer  "likes",             :default => 0,     :null => false
     t.string   "creator_ip"
+    t.integer  "api_key_id"
   end
 
 end
