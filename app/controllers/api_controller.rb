@@ -19,11 +19,10 @@ class ApiController < ApplicationController
     @multa.api_key_id = ApiKey.find_by_api_id(params[:api_id]).id
     
     if @multa.save
-      # Tell the UserMailer to send an e-mail after save
-      UserMailer.nova_multa_criada(@multa).deliver
       render :nothing => true
     else
-      render :file => "public/500.html", :status => :unauthorized, :layout => false
+      logger.error @multa.errors.to_yaml
+      render :file => "public/500.html", :status => 500, :layout => false
     end
   end
 

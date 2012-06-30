@@ -41,4 +41,7 @@ Msociais::Application.configure do
   config.action_mailer.perform_deliveries = false # Mudar para true se quiser testar a entrega de emails em ambiente de desenvolvimento. Precisa setar variavel de ambiente EMAIL_PASS
   config.action_mailer.raise_delivery_errors = true
   
+  # Preferences
+  SEND_EMAIL_TO_ADMIN = false
+  
 end

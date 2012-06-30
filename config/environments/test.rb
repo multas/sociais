@@ -59,5 +59,7 @@ Msociais::Application.configure do
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   config.assets.precompile += %w( jquery-ui-1.8.16.custom.css )
 
+  # Preferences
+  SEND_EMAIL_TO_ADMIN = false
   
 end

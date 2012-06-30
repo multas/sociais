@@ -10,7 +10,9 @@ class Multa < ActiveRecord::Base
   
 	validates :descricao, :presence => true, :length => { :maximum => 2500, :too_long => "Máximo de caracteres permitidos: %{count}" }
 	validates :placa, :length => { :maximum => 8, :too_long => "Máximo de caracteres permitidos: %{count}" }
-
+	
+	after_create  :send_notification_to_admin
+  
   # Heroku: http://devcenter.heroku.com/articles/config-vars
   # export S3_KEY=mykey
   # export S3_SECRET=mysecret
@@ -28,6 +30,11 @@ class Multa < ActiveRecord::Base
 
   def tem_foto?
     !foto.size.nil?
+  end
+  
+  def send_notification_to_admin
+    # Tell the UserMailer to send an e-mail after save
+    UserMailer.nova_multa_criada(self).deliver if SEND_EMAIL_TO_ADMIN
   end
   
   # Retorna a proxima multa, em ordem decrescente, com loop infinito (retornando a última caso chegue ao início)

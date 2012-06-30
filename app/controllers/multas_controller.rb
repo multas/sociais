@@ -59,9 +59,6 @@ class MultasController < ApplicationController
     
     respond_to do |format|
       if @multa.save
-        # Tell the UserMailer to send an e-mail after save
-        UserMailer.nova_multa_criada(@multa).deliver
-        
         format.html { redirect_to @multa, notice: 'Multa registrada com sucesso.' }
         format.json { render json: @multa, status: :created, location: @multa }
       else
