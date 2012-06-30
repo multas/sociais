@@ -1,4 +1,7 @@
-<%= form_for @api, :url => api_path, :authenticity_token => false, :html => {:multipart => true } do |f| %>
+<strong>Área de testes para usuários da API - Multas Sociais</strong><br/>
+<br/>
+
+<%= form_for @api, :url => api_index_path, :authenticity_token => false, :html => {:multipart => true } do |f| %>
   <% if @api.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@api.errors.count, "error") %> prohibited this api from being saved:</h2>
@@ -12,7 +15,7 @@
   <% end %>
 
   <div class="field">
-    <%= label_tag :api_id %><br />
+    <%= label_tag 'API id' %><br />
     <%= text_field_tag :api_id %>
   </div>
   <div class="field">

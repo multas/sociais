@@ -28,7 +28,17 @@ Msociais::Application.configure do
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
-
+  config.action_mailer.smtp_settings = {
+    :address              => "mail.multassociais.net",
+    :port                 => 587,
+    :domain               => "multassociais.net",
+    :user_name            => "contato@multassociais.net",
+    :password             => ENV['EMAIL_PASS'],
+    :authentication       => :login,
+    :enable_starttls_auto => false  }
+  config.action_mailer.perform_deliveries = false
+  config.action_mailer.raise_delivery_errors = false
+  
   # Use SQL instead of Active Record's schema dumper when creating the test database.
   # This is necessary if your schema can't be completely dumped by the schema dumper,
   # like if you have constraints or database-specific column types
@@ -36,4 +46,5 @@ Msociais::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  
 end
