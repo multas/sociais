@@ -37,10 +37,11 @@
       </div>
       <% end %>
     </div>
-    <span class="dt-multa"><%= multa.created_at.strftime("%d/%m/%Y - %H:%M:%S") %></span>
+    <span class="dt-multa"><%= multa.created_at.strftime("%d/%m/%Y - %H:%M") %></span>
     <p class="ds-multa">
       <%= preview multa.descricao %><%= link_to "Ver mais", multa %>
     </p>
+    <span class="app-info"><%= app_info multa %></span>
     <%= link_to "Eu Multo!", multa_like_path(multa), :remote => true, :class => "bt-like", :onclick => "return false;" %>
     <p class="votacao-multa">
       <span class="num-votacao"><%= multa.likes %></span> pessoas também multaram.

@@ -27,9 +27,6 @@ Msociais::Application.routes.draw do
 
   # API
   resources :api_keys
-  #get 'api/new'
-  #get 'api' => 
-  #post 'api' => 'api#create'
   resources :api, :only => [:index, :create, :new]
   
 end

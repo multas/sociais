@@ -71,5 +71,4 @@ class Multa < ActiveRecord::Base
   def show
     hidden = false
   end
-  
 end

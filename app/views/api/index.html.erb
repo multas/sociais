@@ -1,0 +1,71 @@
+<div class="box-sobre clearfix">
+  <div class="grid_16">
+    <h1>API Multas Sociais</h1>
+  
+    <h2>Agora você também pode desenvolver seus próprios aplicativos utilizando a API do Multas Sociais!</h2>
+    
+    <h3>Como utilizar?</h3>
+    <p>
+    Para acessar nossa API, você precisa obter um id (api_id) e senha (api_secret). Por enquanto, você pode solicitar um id e senha através do E-mail <a href="mailto:api@multassociais.net" target="_blank">api@multassociais.net</a>.<br/>
+    </p>
+    
+    <h3>Character Encoding</h3>
+    <p>
+    A API do Multas Sociais aceita texto codificado em UTF-8. Qualquer outro encoding deve ser convertido para UTF-8 antes do envio ao Multas Sociais, para garantir que os dados não sejam corrompidos.<br/> 
+    </p>
+    
+    <h3>Ambiente de Testes</h3>
+    <p>
+    Você pode testar seu novo aplicativo à vontade, direcionando suas chamadas para a url http://testes.multassociais.net/api<br/>
+    Para verificar se as multas foram inseridas com sucesso, visite o endereço http://testes.multassociais.net/<br/>
+    De tempos em tempos os dados do ambiente de testes podem ser removidos.<br/>
+    Quando estiver com o aplicativo testado, direcione suas chamadas para o ambiente de produção na url http://www.multassociais.net/api<br/>
+    </p>
+    
+    <h3>Métodos Disponíveis - REST API Resources</h3>
+    <p>
+      Estamos criando novos métodos e adicionando a esta página. Você pode pedir seus métodos também (ou desenvolver e enviar seu pull request).<br/>
+    </p>
+    
+    <table width="100%">
+      <tr>
+        <td>    
+          POST /api
+        </td>
+        <td>
+          Método utilizado para fazer upload de uma nova multa.
+        </td>
+      </tr>
+      <tr>
+        <td>    
+        </td>
+        <td>
+          Parâmetros:<br/>
+          - api_id, o id da sua aplicação<br/>
+          - api_secret, a chave secreta da sua aplicação<br/>
+          - multa[data_ocorrencia(1i)], ano em que a multa ocorreu, no formato yyyy, ex. 2012.<br/>
+          - multa[data_ocorrencia(2i)], mês em que a multa ocorreu, no formato m, ex. 2 ou 10.<br/>
+          - multa[data_ocorrencia(3i)], dia em que a multa ocorreu, no formato d, ex. 9 ou 19.<br/>
+          - multa[data_ocorrencia(4i)], hora em que a multa ocorreu, no formato hh (24hs), ex. 02 ou 23.<br/>
+          - multa[data_ocorrencia(5i)], minuto em que a multa ocorreu, no formato mm, ex. 08 ou 59.<br/>
+          - multa[placa], placa do carro, ex. "ABC-1234".<br/>
+          - multa[foto], foto da infração.<br/>
+          - multa[video], vídeo da infração (URL para vídeo do YouTube).<br/>
+          - multa[descricao], descrição da infração.<br/>
+          <br/>
+          Retornos<br/>
+          HTTP 200 - Multa inserida com sucesso.<br/>
+          HTTP 401 - api_id e/ou api_secret inválidos.<br/>
+          HTTP 500 - Erro nas informações fornecidas.<br/>
+          <br/>
+        </td>
+      </tr>
+    </table>
+    
+    <p>
+    Qualquer dúvida, envie um e-mail para <a href="mailto:api@multassociais.net" target="_blank">api@multassociais.net</a>.
+    </p>
+
+  </div>
+  <br/>
+</div>

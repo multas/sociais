@@ -18,4 +18,9 @@ module MultasHelper
       text
     end
   end
+  
+  # Exibe informações do aplicativo utilizado
+  def app_info(multa)
+    "via #{multa.api_key.app_name}" unless multa.api_key.blank? || multa.api_key.app_name.blank? 
+  end
 end
