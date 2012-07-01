@@ -357,6 +357,7 @@ div.fb-like {margin: 12px 22px; padding: 0;}
 
 .app-info {
   font-size: 11px;
+  font-style: italic;
   color: #555;
   text-align: justify;
   margin: 8px 10px 0 5px;
@@ -364,6 +365,15 @@ div.fb-like {margin: 12px 22px; padding: 0;}
   float: right;
   width: 190px;
   line-height: 15px;
+}
+
+.app-info a{
+  color: #e56e00;
+  margin: 4px 0 2px 0;
+}
+
+.app-info a:hover{
+  text-decoration: underline;
 }
 
 .votacao-multa {

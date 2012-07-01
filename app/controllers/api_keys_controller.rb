@@ -2,7 +2,7 @@
 class ApiKeysController < ApplicationController
   
   # Autenticação básica, só pra começar - Para todos os métodos deste controller
-  http_basic_authenticate_with :name => ENV['AUTH_USER'], :password => ENV['AUTH_PASS']
+  http_basic_authenticate_with :name => ENV['AUTH_USER'], :password => ENV['AUTH_PASS'], :except => [:new, :create]
   
   # GET /api_keys
   # GET /api_keys.json
@@ -45,15 +45,21 @@ class ApiKeysController < ApplicationController
   # POST /api_keys
   # POST /api_keys.json
   def create
-    @api_key = ApiKey.new(params[:api_key])
+    api_key = ApiKey.new(params[:api_key])
+    api_key.api_id = Token.generate(9)
+    api_key.api_secret = Token.generate
+    api_key.enabled = true
+    api_key.excluded = false
+    
+    @email = api_key.owner_email
 
     respond_to do |format|
-      if @api_key.save
-        format.html { redirect_to @api_key, notice: 'Api key was successfully created.' }
-        format.json { render json: @api_key, status: :created, location: @api_key }
+      if api_key.save
+        format.html { render :create_success }
+        format.json { render json: api_key, status: :created, location: api_key }
       else
         format.html { render action: "new" }
-        format.json { render json: @api_key.errors, status: :unprocessable_entity }
+        format.json { render json: api_key.errors, status: :unprocessable_entity }
       end
     end
   end

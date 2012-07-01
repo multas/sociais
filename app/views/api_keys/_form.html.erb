@@ -12,37 +12,25 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :api_id %><br />
-    <%= f.text_field :api_id %>
-  </div>
-  <div class="field">
-    <%= f.label :api_secret %><br />
-    <%= f.text_field :api_secret %>
-  </div>
-  <div class="field">
-    <%= f.label :app_name %><br />
-    <%= f.text_field :app_name %>
-  </div>
-  <div class="field">
-    <%= f.label :app_site %><br />
-    <%= f.text_field :app_site %>
-  </div>
-  <div class="field">
-    <%= f.label :owner_name %><br />
+    <%= f.label "Seu nome (ou apelido, como preferir...)" %><br />
     <%= f.text_field :owner_name %>
   </div>
+  <br/>
   <div class="field">
-    <%= f.label :owner_email %><br />
+    <label>Seu e-mail (Seu novo id e senha serão enviados para este e-mail. Não fazemos SPAM.)</label><br />
     <%= f.text_field :owner_email %>
   </div>
+  <br/>
   <div class="field">
-    <%= f.label :enabled %><br />
-    <%= f.check_box :enabled %>
+    <label>Nome do seu aplicativo (Aparecerá sempre que alguém utilizar seu aplicativo. Poderá ser alterado posteriormente)</label><br />
+    <%= f.text_field :app_name %>
   </div>
+  <br/>
   <div class="field">
-    <%= f.label :excluded %><br />
-    <%= f.check_box :excluded %>
+    <%= f.label "Site onde seu aplicativo estará disponível" %><br />
+    <%= f.text_field :app_site %>
   </div>
+  <br/>
   <div class="actions">
     <%= f.submit %>
   </div>

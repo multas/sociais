@@ -21,6 +21,6 @@ module MultasHelper
   
   # Exibe informações do aplicativo utilizado
   def app_info(multa)
-    "via #{multa.api_key.app_name}" unless multa.api_key.blank? || multa.api_key.app_name.blank? 
+    "<span class='app-info'>via #{external_link_to multa.api_key.app_name[0..25], multa.api_key.app_site}</span>".html_safe unless multa.api_key.blank? || multa.api_key.app_name.blank? || multa.api_key.app_site.blank?  
   end
 end

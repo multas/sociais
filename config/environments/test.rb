@@ -38,6 +38,7 @@ Msociais::Application.configure do
     :enable_starttls_auto => false  }
   config.action_mailer.perform_deliveries = false
   config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default_url_options = { :host => 'msociais-qa.herokuapp.com' }
   
   # Use SQL instead of Active Record's schema dumper when creating the test database.
   # This is necessary if your schema can't be completely dumped by the schema dumper,

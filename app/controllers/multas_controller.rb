@@ -11,6 +11,11 @@ class MultasController < ApplicationController
     @mais_novos_css_class = "atual"
     @mais_multados_css_class = ""
     @offset = Multa.visible.tem_foto_ou_video.size > offset + MULTAS_POR_REQUEST ? offset + MULTAS_POR_REQUEST : nil
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @multas }
+    end
   end
 
   # GET /mais_multados

@@ -12,6 +12,7 @@
 </div>
 
 <div class="box-sobre clearfix">
+  <span class="dt-multa"><%= time_ago_in_words @multa_show.created_at %> atrás.</span>
   <div class="img-multa">
     <a href="#">
       <%= image_tag( @multa_show.foto , :width => "685", :alt => "") unless @multa_show.foto.size.nil? %>
@@ -38,6 +39,7 @@
     </p>
   </div>
   <div class="" style="width:210px">
+    <%= app_info @multa_show %>
     <%= link_to "Eu Multo!", multa_like_path(@multa_show), :remote => true, :class => "bt-like", :onclick => "return false;" %>
     <p class="votacao-multa">
       <span class="num-votacao"><%= @multa_show.likes %></span> pessoas também multaram.

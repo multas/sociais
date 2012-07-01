@@ -28,13 +28,17 @@ class Multa < ActiveRecord::Base
     #:url => ":class/:attachment/:id/:style/:updated_at",
     #:hash_secret => "longSecretString"
 
+  def foto_url
+    foto.to_s
+  end
+
   def tem_foto?
     !foto.size.nil?
   end
   
+  # Avisa aos admins que uma nova multa foi cadastrada
   def send_notification_to_admin
-    # Tell the UserMailer to send an e-mail after save
-    UserMailer.nova_multa_criada(self).deliver if SEND_EMAIL_TO_ADMIN
+    UserMailer.new_multa(self).deliver if SEND_EMAIL_TO_ADMIN
   end
   
   # Retorna a proxima multa, em ordem decrescente, com loop infinito (retornando a última caso chegue ao início)
@@ -70,5 +74,9 @@ class Multa < ActiveRecord::Base
   # Transforma uma multa em visível
   def show
     hidden = false
+  end
+  
+  def as_json(options={})
+    super(:only => [:id, :data_ocorrencia, :placa, :descricao, :video, :likes], :methods => [:foto_url])
   end
 end

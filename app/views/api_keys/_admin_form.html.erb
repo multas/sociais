@@ -1,0 +1,49 @@
+<%= form_for(@api_key) do |f| %>
+  <% if @api_key.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@api_key.errors.count, "error") %> prohibited this api_key from being saved:</h2>
+
+      <ul>
+      <% @api_key.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :api_id %><br />
+    <%= f.text_field :api_id %>
+  </div>
+  <div class="field">
+    <%= f.label :api_secret %><br />
+    <%= f.text_field :api_secret %>
+  </div>
+  <div class="field">
+    <%= f.label :app_name %><br />
+    <%= f.text_field :app_name %>
+  </div>
+  <div class="field">
+    <%= f.label :app_site %><br />
+    <%= f.text_field :app_site %>
+  </div>
+  <div class="field">
+    <%= f.label :owner_name %><br />
+    <%= f.text_field :owner_name %>
+  </div>
+  <div class="field">
+    <%= f.label :owner_email %><br />
+    <%= f.text_field :owner_email %>
+  </div>
+  <div class="field">
+    <%= f.label :enabled %><br />
+    <%= f.check_box :enabled %>
+  </div>
+  <div class="field">
+    <%= f.label :excluded %><br />
+    <%= f.check_box :excluded %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

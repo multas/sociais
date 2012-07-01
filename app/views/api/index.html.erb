@@ -6,7 +6,7 @@
     
     <h3>Como utilizar?</h3>
     <p>
-    Para acessar nossa API, você precisa obter um id (api_id) e senha (api_secret). Por enquanto, você pode solicitar um id e senha através do E-mail <a href="mailto:api@multassociais.net" target="_blank">api@multassociais.net</a>.<br/>
+    Para acessar nossa API, você precisa gerar um id e uma chave de acesso através <%= link_to "desta página", new_api_key_path %>.<br/>
     </p>
     
     <h3>Character Encoding</h3>
@@ -30,7 +30,26 @@
     <table width="100%">
       <tr>
         <td>    
-          POST /api
+          <strong>GET /multas.json</strong>
+        </td>
+        <td>
+          Método utilizado para obter os dados das últimas 10 multas.<br/>
+          <br/>
+        </td>
+      </tr>
+      <tr>
+        <td>    
+          <strong>GET /multas/&lt;id&gt;.json</strong>
+        </td>
+        <td>
+          Método utilizado para obter os detalhes de uma multa.<br/>
+          Troque &lt;id&gt; pelo id da multa, ex. /multas/9.json<br/>
+          <br/>
+        </td>
+      </tr>
+      <tr>
+        <td>    
+          <strong>POST /api</strong>
         </td>
         <td>
           Método utilizado para fazer upload de uma nova multa.
@@ -53,7 +72,7 @@
           - multa[video], vídeo da infração (URL para vídeo do YouTube).<br/>
           - multa[descricao], descrição da infração.<br/>
           <br/>
-          Retornos<br/>
+          Retornos:<br/>
           HTTP 200 - Multa inserida com sucesso.<br/>
           HTTP 401 - api_id e/ou api_secret inválidos.<br/>
           HTTP 500 - Erro nas informações fornecidas.<br/>

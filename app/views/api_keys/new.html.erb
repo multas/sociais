@@ -1,5 +1,25 @@
-<h1>New api_key</h1>
+<div class="box-sobre clearfix">
+  <div class="grid_16">
+    <h1>API Multas Sociais</h1>
+  
+    <h2>Crie agora seu id e senha para acessar a API do Multas Sociais.</h2>
+    
+    <h3>Como utilizar?</h3>
+    <p>
+    Para mais informações sobre como utilizar nossa API visite <%= link_to "esta página", api_index_path %>.
+    </p>
+    
+    <h3>Criar id e senha de acesso à API</h3>
+    <p>
+    Para criar seu id (api_id) e senha (api_secret) preencha as informações solicitadas abaixo:
+    </p>
+    
+    <%= render 'form' %>
+        
+    <p>
+    Qualquer dúvida, envie um e-mail para <a href="mailto:api@multassociais.net" target="_blank">api@multassociais.net</a>.
+    </p>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', api_keys_path %>
+  </div>
+  <br/>
+</div>
