@@ -2,7 +2,7 @@
 class MultasController < ApplicationController
   
   # Autenticação básica, só pra começar
-  http_basic_authenticate_with :name => ENV['AUTH_USER'], :password => ENV['AUTH_PASS'], :only => [:edit, :update, :destroy, :invisiveis]
+  http_basic_authenticate_with :name => ENV['AUTH_USER'], :password => ENV['AUTH_PASS'], :only => [:edit, :update, :destroy, :invisiveis, :index_all]
   
   # GET /multas
   def index
@@ -14,6 +14,20 @@ class MultasController < ApplicationController
     
     respond_to do |format|
       format.html # index.html.erb
+      format.json { render json: @multas }
+    end
+  end
+  
+  # GET /multas/all
+  def index_all
+    offset = params[:p].to_i || 0 
+    @multas = Multa.visible.tem_foto_ou_video.find(:all, :order => "created_at DESC", :offset => offset)
+    @mais_novos_css_class = "atual"
+    @mais_multados_css_class = ""
+    @offset = nil
+    
+    respond_to do |format|
+      format.html { render :index } # index.html.erb
       format.json { render json: @multas }
     end
   end

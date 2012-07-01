@@ -6,6 +6,7 @@ Msociais::Application.routes.draw do
     get 'flag'
     post 'create_flag'
     match 'like'
+    get 'all' => 'multas#index_all', :on => :collection
   end
   
   resources :admin, :as => "admin", :only => [:index] do
