@@ -54,6 +54,29 @@
       </ul>
       <div class="grid_2 fb-like" data-href="<%= multa_url(multa) %>" data-send="false" data-layout="button_count" data-width="0" data-show-faces="false"></div>
     </div>
+    <% if multa.lat && multa.lng %>
+      <div class="grid_5" id="mapa[<%=multa.id%>]" style="height:100px">Onde?<br/>&nbsp;</div>
+      <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+      <script type="text/javascript">
+        function initialize() {
+          var myLatlng = new google.maps.LatLng(<%= multa.lat %>, <%= multa.lng %>);
+          var myOptions = {
+            zoom: 15,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          }
+          var map = new google.maps.Map(document.getElementById("mapa[<%=multa.id%>]"), myOptions);
+          
+          var marker = new google.maps.Marker({
+              position: myLatlng, 
+              map: map,
+              title:"Multa Social"
+          });  
+        }
+        
+        initialize();
+       </script>
+     <% end %>
   </div>
 </div>
 <% end %>
