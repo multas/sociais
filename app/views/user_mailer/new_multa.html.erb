@@ -31,6 +31,9 @@
       
       IP: <%= @multa.creator_ip %><br/><br/>
       
+      Lat: <%= @multa.lat %><br/>
+      Lng: <%= @multa.lng %><br/><br/>
+      
       Foto:<br/>
       <%= image_tag( @multa.foto , :width => "250") unless @multa.foto.size.nil? %>
     </p>
