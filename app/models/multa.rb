@@ -10,7 +10,8 @@ class Multa < ActiveRecord::Base
   
 	validates :descricao, :presence => true, :length => { :maximum => 2500, :too_long => "Máximo de caracteres permitidos: %{count}" }
 	validates :placa, :length => { :maximum => 8, :too_long => "Máximo de caracteres permitidos: %{count}" }
-	
+	validates :video, :format => { :with => /http.*/i, :allow_blank => true, :message => "Url deve começar com http ou https" }
+
 	after_create  :send_notification_to_admin
   
   # Heroku: http://devcenter.heroku.com/articles/config-vars
