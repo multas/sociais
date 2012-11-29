@@ -38,7 +38,10 @@ class MultasController < ApplicationController
     @multas = Multa.visible.tem_foto_ou_video.find(:all, :order => "likes DESC", :limit => MULTAS_POR_REQUEST, :offset => offset)
     @mais_novos_css_class = ""
     @mais_multados_css_class = "atual"
-    render :index
+    respond_to do |format|
+      format.html { render :index } # index.html.erb
+      format.json { render json: @multas }
+    end
   end
 
   # GET /multas/1
