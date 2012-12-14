@@ -30,7 +30,7 @@
     </p>
     
     <p>
-      <%= render :partial => "shared/youtube", :locals => { :multa => @multa_show } %>
+      <%= render :partial => "shared/youtube", :locals => { :multa => @multa_show } unless @multa_show.video.blank? %>
     </p>
     
     <p>
