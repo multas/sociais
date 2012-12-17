@@ -26,6 +26,11 @@ class ApiController < ApplicationController
     end
   end
 
+  # GET /aplicativos
+  def aplicativos
+    # Página estática - Não precisa de ação no controller
+  end
+
   private
   
   def verify_api_secret

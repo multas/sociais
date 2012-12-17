@@ -22,12 +22,14 @@ Msociais::Application.routes.draw do
   
   match 'sobre' => 'multas#sobre'
   match 'mais_multados' => 'multas#mais_multados'
-
+  
   # Root
   root :to => 'multas#index'
 
   # API
   resources :api_keys
-  resources :api, :only => [:index, :create, :new]
+  resources :api, :only => [:index, :create, :new] do
+    get 'aplicativos', :on => :collection
+  end
   
 end

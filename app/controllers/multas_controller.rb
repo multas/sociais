@@ -148,5 +148,5 @@ class MultasController < ApplicationController
   def sobre
     # Página estática - Não precisa de ação no controller
   end
-  
+
 end
