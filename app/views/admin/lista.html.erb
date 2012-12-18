@@ -15,9 +15,9 @@
       <tr>
         <td><%= link_to multa.id, "show_multa/#{multa.id}" %></td>
         <td><%= multa.creator_ip %></td>
-        <td><%= preview multa.descricao %></td>
-        <td><%= preview multa.placa %></td>
-        <td><%= preview multa.video %></td>
+        <td><%= preview multa.descricao unless multa.descricao.blank? %></td>
+        <td><%= preview multa.placa unless multa.placa.blank? %></td>
+        <td><%= preview multa.video unless multa.video.blank? %></td>
         <td><%= multa.hidden_as_string %></td>
         <td><%= multa.likes %></td>
         <td><%= link_to "Bloquear", "bloquear_ip/#{multa.id}", :confirm => "Tem certeza que deseja bloquear o IP #{multa.creator_ip} e tornar todas as suas multas invisíveis?", :method => :delete unless multa.creator_ip.blank? %></td>

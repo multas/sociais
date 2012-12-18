@@ -22,6 +22,7 @@ Msociais::Application.routes.draw do
   
   match 'sobre' => 'multas#sobre'
   match 'mais_multados' => 'multas#mais_multados'
+  get 'aniversario2012' => 'multas#aniversario2012'
   
   # Root
   root :to => 'multas#index'

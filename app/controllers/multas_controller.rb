@@ -149,4 +149,10 @@ class MultasController < ApplicationController
     # Página estática - Não precisa de ação no controller
   end
 
+  # GET /aniversario2012
+  def aniversario2012
+    # Página estática - Não precisa de ação no controller
+    render :layout => 'background_only'
+  end
+
 end
