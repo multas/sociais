@@ -54,7 +54,7 @@ class AdminController < ApplicationController
   # GET /admin/debug_pictures
   def debug_pictures
     offset = params[:p].to_i || 0 
-    @multas = Multa.visible.tem_foto_ou_video.find(:all, :order => "created_at DESC", :limit => 100, :offset => offset)
+    @multas = Multa.visible.tem_foto_ou_video.find(:all, :order => "created_at DESC", :limit => 50, :offset => offset)
     render :layout => 'background_only'
   end
 end
