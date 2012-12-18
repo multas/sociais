@@ -1,0 +1,26 @@
+<h1>Listagem de Fotos - Original</h1>
+
+<% @multas.each do |multa| %>
+<%= link_to multa.id, multa %>
+<%= link_to(image_tag(multa.foto(:original), :width => "50", :alt => ""), multa.foto(:original)) unless multa.foto.size.nil? %>
+<%= "nil" if multa.foto.size.nil? %>
+<% end %>
+<br/><br/>
+
+<h1>Listagem de Fotos - Medium</h1>
+
+<% @multas.each do |multa| %>
+<%= link_to multa.id, multa %>
+<%= link_to(image_tag(multa.foto(:medium), :width => "50", :alt => ""), multa.foto(:medium)) unless multa.foto.size.nil? %>
+<%= "nil" if multa.foto.size.nil? %>
+<% end %>
+<br/><br/>
+
+<h1>Listagem de Fotos - Small</h1>
+
+<% @multas.each do |multa| %>
+<%= link_to multa.id, multa %>
+<%= link_to(image_tag(multa.foto(:small), :width => "50", :alt => ""), multa.foto(:small)) unless multa.foto.size.nil? %>
+<%= "nil" if multa.foto.size.nil? %>
+<% end %>
+<br/><br/>

@@ -14,6 +14,7 @@ Msociais::Application.routes.draw do
       get 'invisiveis'
       get 'lista'
       get 'blacklist'
+      get 'debug_pictures'
       get 'show_multa/:multa_id' => "admin#show_multa"
       match 'bloquear_ip/:id' => "admin#bloquear_ip", :via => [:delete]
       match 'remover_blacklist/:id' => "admin#remover_blacklist", :via => [:put]
