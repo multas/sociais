@@ -51,6 +51,7 @@ Para evitar ter que configurar as variáveis de ambiente todas as vezes, você p
 Quer ajudar com uma nova funcionalidade ou bugfix? Obrigado!!!
 
 1- Você pode entrar na [lista de e-mails](http://groups.google.com/group/multas-sociais) ou postar uma nova [GitHub Issue](http://github.com/multas/sociais/issues).
+
 2- Ao desenvolver, realize os testes (estamos pecando neste ponto, mas vamos tentar recuperar...)
 ```console
 $ bundle exec rspec spec
