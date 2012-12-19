@@ -29,7 +29,7 @@
     <div class="grid_12 media-multa">
       <% if multa.tem_foto? %>
       <div class="img-multa">
-        <%= (link_to image_tag(multa.foto, :width => "460", :alt => ""), multa) %>
+        <%= (link_to image_tag(multa.foto(:small), :width => "460", :alt => ""), multa) %>
       </div>
       <% else %>
       <div class="video-multa">

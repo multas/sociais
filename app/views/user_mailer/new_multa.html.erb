@@ -35,7 +35,7 @@
       Lng: <%= @multa.lng %><br/><br/>
       
       Foto:<br/>
-      <%= image_tag( @multa.foto , :width => "250") unless @multa.foto.size.nil? %>
+      <%= image_tag( @multa.foto(:small) , :width => "250") unless @multa.foto.size.nil? %>
     </p>
   </body>
 </html>

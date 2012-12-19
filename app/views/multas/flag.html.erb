@@ -14,7 +14,7 @@
   </div>
   <div class="img-multa">
     <a href="#">
-      <%= image_tag( @multa_show.foto , :width => "150", :alt => "") if @multa_show.tem_foto? %>
+      <%= image_tag( @multa_show.foto(:small) , :width => "150", :alt => "") if @multa_show.tem_foto? %>
     </a>
   </div>
   <div class="grid_16">
