@@ -48,26 +48,19 @@ Para evitar ter que configurar as variáveis de ambiente todas as vezes, você p
 
 ## Contribuindo
 
-Quer ajudar? simples, fork o projeto, crie um branch tema a partir do master, por exemplo, vai corrigir algo:
+Quer ajudar com uma nova funcionalidade ou bugfix? Obrigado!!!
 
-```console
-$ git checkout -b corrigindo_algo master
-```
-
-Faça suas alterações, por favor commits pequenos, rode os testes:
-
+1- Você pode entrar na [lista de e-mails](http://groups.google.com/group/multas-sociais) ou postar uma nova [GitHub Issue](http://github.com/multas/sociais/issues).
+2- Ao desenvolver, realize os testes (estamos pecando neste ponto, mas vamos tentar recuperar...)
 ```console
 $ bundle exec rspec spec
 ```
 
-Se tudo estiver passando, commit:
+Se tudo estiver passando, manda um pull request para a gente atualizar o app.
 
-```console
-$ git push origin corrigindo_algo
-```
+Qualquer dúvida, manda uma mensagem pra gente na mailing list ou em equipe@multassociais.net pra gente poder ajudar.
 
-Só iniciar o processo de pull request através do branch corrigindo_algo
-
+Valeu!!
 
 
 ## Licença
