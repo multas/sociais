@@ -30,8 +30,18 @@ class Multa < ActiveRecord::Base
     #:url => ":class/:attachment/:id/:style/:updated_at",
     #:hash_secret => "longSecretString"
 
+  # DEPRECATED since 19/dez/2012 - foto_url() is deprecated and may be removed from future releases, use foto_medium() or foto_small() instead.
   def foto_url
-    foto.to_s
+    ActiveSupport::Deprecation.warn "foto_url() is deprecated and may be removed from future releases, use foto_medium() or foto_small() instead.", caller
+    foto_medium
+  end
+
+  def foto_medium
+    foto(:medium).to_s
+  end
+
+  def foto_small
+    foto(:small).to_s
   end
 
   def tem_foto?
@@ -79,6 +89,6 @@ class Multa < ActiveRecord::Base
   end
   
   def as_json(options={})
-    super(:only => [:id, :data_ocorrencia, :placa, :descricao, :video, :likes], :methods => [:foto_url])
+    super(:only => [:id, :data_ocorrencia, :placa, :descricao, :video, :likes], :methods => [:foto_url, :foto_medium, :foto_small])
   end
 end
