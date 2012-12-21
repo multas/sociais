@@ -26,7 +26,8 @@ class Multa < ActiveRecord::Base
       :access_key_id => ENV['S3_KEY'],
       :secret_access_key => ENV['S3_SECRET']
     },
-    :styles => { :small => "460", :medium => "685" }
+    :styles => { :small => "460", :medium => "685" },
+    :convert_options => { :all => '-auto-orient' }
     #:url => ":class/:attachment/:id/:style/:updated_at",
     #:hash_secret => "longSecretString"
 
